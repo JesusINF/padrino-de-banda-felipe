@@ -1,0 +1,11 @@
+{
+  "name": "padrino-de-banda-felipe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Invitación para Felipe como padrino de banda.",
+  "scripts": {
+    "serve": "npx --yes serve . -l 4174 --no-clipboard",
+    "check": "node scripts/check-project.mjs",
+    "audit": "node scripts/audit-browser.mjs"
+  }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es-MX" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071b35">
+  <meta name="description" content="Una invitación especial para Felipe como padrino de banda.">
+  <title>Felipe, ¿aceptas ser nuestro padrino de banda?</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23071b35'/%3E%3Cpath d='M17 45c0-13 8-25 23-27v9c-8 2-12 8-12 17m12-26c7 0 12 4 12 9s-5 9-12 9z' fill='none' stroke='%23e5a268' stroke-width='6'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/barlow-bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/santuario-noche.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/tuba.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#invitacion">Ir a la invitación</a>
+
+  <main id="invitacion">
+    <section class="hero" aria-labelledby="hero-title" data-hero>
+      <div class="hero__stage">
+        <div class="hero__art" aria-hidden="true">
+          <div class="hero__sanctuary">
+            <img src="assets/santuario-noche.webp" alt="" width="1200" height="800" fetchpriority="high">
+          </div>
+          <img class="hero__tuba" src="assets/tuba.webp" alt="" width="960" height="1200" fetchpriority="high">
+        </div>
+        <div class="hero__copy">
+          <p class="eyebrow">Una invitación muy especial</p>
+          <h1 id="hero-title" class="hero__name">Felipe</h1>
+          <p class="hero__role">Padrino de banda</p>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span></span>Desliza para comenzar</div>
+      </div>
+    </section>
+
+    <section class="ask paper-section" aria-labelledby="ask-title">
+      <div class="ornament reveal" data-reveal aria-hidden="true"><i></i><span>✦</span><i></i></div>
+      <p class="ask__intro reveal" data-reveal>Felipe, queremos que formes parte del ritmo de nuestra historia.</p>
+      <h2 id="ask-title" class="ask__title reveal" data-reveal>¿Aceptas ser nuestro<br>padrino de banda?</h2>
+      <p class="ask__note reveal" data-reveal>Tu compañía hará que este día suene todavía más especial.</p>
+      <button id="accept-trigger" class="accept-button reveal" data-reveal type="button" disabled>
+        <span class="accept-button__label">Acepto con alegría</span>
+        <span class="accept-button__status" aria-hidden="true"></span>
+      </button>
+      <p id="connection-status" class="connection-status" role="status">Preparando la invitación…</p>
+    </section>
+
+    <section class="meaning" aria-labelledby="meaning-title">
+      <div class="music-staff" aria-hidden="true">
+        <span data-note>♪</span><span data-note>♩</span><span data-note>♫</span>
+      </div>
+      <div class="meaning__content">
+        <p class="section-kicker reveal" data-reveal>El significado</p>
+        <h2 id="meaning-title" class="reveal" data-reveal>El compás de<br>nuestra celebración</h2>
+        <p class="reveal" data-reveal>La banda marca el ritmo de nuestras celebraciones y de nuestra historia. Tenerte como padrino significa contar con tu apoyo, tu amistad y tu alegría para que este día suene inolvidable.</p>
+      </div>
+    </section>
+
+    <section class="date-card paper-section" aria-labelledby="date-title">
+      <div class="ornament reveal" data-reveal aria-hidden="true"><i></i><span>✦</span><i></i></div>
+      <p class="date-card__label reveal" data-reveal>Guarda la fecha</p>
+      <h2 id="date-title" class="date-card__date reveal" data-reveal><time datetime="2027-01-23">23 · Enero · 2027</time></h2>
+      <p class="date-card__place reveal" data-reveal>La Piedad, Michoacán</p>
+      <div class="date-card__church reveal" data-reveal>
+        <span aria-hidden="true">✦</span>
+        <p>Señor de La Piedad</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Con cariño, para Felipe</p>
+    <span aria-hidden="true">♪</span>
+  </footer>
+
+  <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="dialog-title">
+    <form method="dialog" class="confirm-dialog__panel">
+      <span class="confirm-dialog__note" aria-hidden="true">♫</span>
+      <p class="section-kicker">Una respuesta para recordar</p>
+      <h2 id="dialog-title">¿Confirmas que aceptas?</h2>
+      <p>Guardaremos una sola respuesta para esta invitación.</p>
+      <div class="confirm-dialog__actions">
+        <button id="confirm-accept" class="accept-button" value="confirm" type="button">Sí, acepto</button>
+        <button class="text-button" value="cancel" type="submit">Volver</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
