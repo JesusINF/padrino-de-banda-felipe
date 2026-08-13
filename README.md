@@ -2,6 +2,8 @@
 
 Invitación web móvil para Felipe como padrino de banda. Sitio estático en HTML, CSS y JavaScript, con persistencia segura en el mismo proyecto Firebase de las invitaciones de boda.
 
+Sitio público: https://jesusinf.github.io/padrino-de-banda-felipe/
+
 ## Validación local
 
 ```powershell
