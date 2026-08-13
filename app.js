@@ -120,22 +120,37 @@ document.querySelectorAll("[data-reveal], [data-note]").forEach((element) => obs
 
 const hero = document.querySelector("[data-hero]");
 let ticking = false;
+let targetHeroProgress = 0;
+let renderedHeroProgress = 0;
 
-function updateHeroProgress() {
+function measureHeroProgress() {
   const rect = hero.getBoundingClientRect();
   const distance = Math.max(1, hero.offsetHeight - window.innerHeight);
-  const progress = Math.min(1, Math.max(0, -rect.top / distance));
-  hero.style.setProperty("--hero-progress", progress.toFixed(3));
-  ticking = false;
+  targetHeroProgress = Math.min(1, Math.max(0, -rect.top / distance));
+}
+
+function renderHeroProgress() {
+  renderedHeroProgress += (targetHeroProgress - renderedHeroProgress) * .16;
+  if (Math.abs(targetHeroProgress - renderedHeroProgress) < .001) renderedHeroProgress = targetHeroProgress;
+  hero.style.setProperty("--hero-progress", renderedHeroProgress.toFixed(3));
+
+  if (renderedHeroProgress !== targetHeroProgress) {
+    window.requestAnimationFrame(renderHeroProgress);
+  } else {
+    ticking = false;
+  }
 }
 
 function requestHeroUpdate() {
+  measureHeroProgress();
   if (ticking) return;
   ticking = true;
-  window.requestAnimationFrame(updateHeroProgress);
+  window.requestAnimationFrame(renderHeroProgress);
 }
 
 window.addEventListener("scroll", requestHeroUpdate, { passive: true });
 window.addEventListener("resize", requestHeroUpdate);
-updateHeroProgress();
+measureHeroProgress();
+renderedHeroProgress = targetHeroProgress;
+hero.style.setProperty("--hero-progress", renderedHeroProgress.toFixed(3));
 connect();
