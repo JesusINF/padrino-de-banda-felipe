@@ -172,10 +172,30 @@ button { font: inherit; }
 }
 
 .hero__copy {
+  position: relative;
+  z-index: 4;
+  isolation: isolate;
   width: min(100%, 55rem);
+  padding-block: .75rem .5rem;
   opacity: clamp(0, calc((var(--hero-progress, 0) - .48) * 6.5), 1);
   transform: translateY(calc((1 - var(--hero-progress, 0)) * 3.2rem));
   will-change: transform, opacity;
+}
+
+.hero__copy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -2.75rem calc(var(--page-inline) * -1) -1.5rem;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(7 27 53 / 24%) 22%,
+    rgb(7 27 53 / 82%) 50%,
+    rgb(7 27 53 / 96%) 78%,
+    transparent 100%
+  );
 }
 
 .eyebrow,
@@ -190,6 +210,11 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 
+.hero__copy .eyebrow,
+.hero__copy .hero__role {
+  text-shadow: 0 .12rem .35rem rgb(1 15 32 / 92%);
+}
+
 .hero__name {
   margin: 0;
   max-width: 100%;
@@ -199,7 +224,7 @@ button { font: inherit; }
   letter-spacing: -.07em;
   line-height: .72;
   text-transform: uppercase;
-  text-shadow: 0 .08em 0 rgb(7 27 53 / 22%);
+  text-shadow: 0 .035em .04em rgb(7 27 53 / 80%), 0 .09em .2em rgb(1 15 32 / 46%);
 }
 
 .hero__role {
@@ -377,6 +402,7 @@ button { font: inherit; }
   .hero { min-height: 220svh; }
   .hero__art { top: 50%; left: auto; right: -7rem; width: min(60vw, 48rem); transform: translateY(calc(-48% - var(--hero-progress, 0) * 7%)) scale(calc(1.16 - var(--hero-progress, 0) * .22)); }
   .hero__copy { padding-bottom: 3rem; }
+  .hero__copy::before { display: none; }
   .hero__name { font-size: clamp(8rem, 18vw, 14rem); }
   .ask { min-height: 46rem; }
   .meaning { min-height: 48rem; grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr); }
