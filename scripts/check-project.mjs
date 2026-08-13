@@ -3,7 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 const names = ["index.html", "styles.css", "app.js", "firebase-config.js", "firestore.rules"];
 const files = Object.fromEntries(await Promise.all(names.map(async (name) => [name, await readFile(name, "utf8")])));
 const hero = await stat("assets/santuario-noche.webp");
-const tuba = await stat("assets/tuba.webp");
+const tuba = await stat("assets/tuba-reference.webp");
 
 const checks = [
   [files["index.html"].includes('lang="es-MX"'), "Falta el idioma es-MX"],
@@ -16,7 +16,7 @@ const checks = [
   [!files["styles.css"].includes("transition: all"), "No debe usarse transition: all"],
   [files["app.js"].includes('INVITATION_ID = "felipe-banda"'), "ID de invitación incorrecto"],
   [files["app.js"].includes("IntersectionObserver"), "Faltan animaciones progresivas"],
-  [files["app.js"].includes("--hero-progress") && files["index.html"].includes("assets/tuba.webp?v=2"), "Falta la narrativa de scroll de la tuba"],
+  [files["app.js"].includes("--hero-progress") && files["index.html"].includes("assets/tuba-reference.webp"), "Falta la narrativa de scroll de la tuba"],
   [files["firestore.rules"].includes("!exists(") && files["firestore.rules"].includes("allow read, update, delete: if false"), "Reglas inseguras"],
   [files["firestore.rules"].includes("/responses/felipe-banda"), "Falta la ruta de Felipe"],
   [hero.size < 180000, "La imagen principal supera 180 KB"],
