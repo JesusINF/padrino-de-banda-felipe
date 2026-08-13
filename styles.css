@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Barlow";
-  src: url("assets/barlow-regular.ttf") format("truetype");
+  src: url("assets/barlow-regular.ttf?v=2") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Barlow";
-  src: url("assets/barlow-bold.ttf") format("truetype");
+  src: url("assets/barlow-bold.ttf?v=2") format("truetype");
   font-weight: 700 900;
   font-display: swap;
 }
