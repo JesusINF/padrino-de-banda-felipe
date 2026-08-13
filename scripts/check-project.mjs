@@ -16,7 +16,7 @@ const checks = [
   [!files["styles.css"].includes("transition: all"), "No debe usarse transition: all"],
   [files["app.js"].includes('INVITATION_ID = "felipe-banda"'), "ID de invitación incorrecto"],
   [files["app.js"].includes("IntersectionObserver"), "Faltan animaciones progresivas"],
-  [files["app.js"].includes("--hero-progress") && files["index.html"].includes("assets/tuba.webp"), "Falta la narrativa de scroll de la tuba"],
+  [files["app.js"].includes("--hero-progress") && files["index.html"].includes("assets/tuba.webp?v=2"), "Falta la narrativa de scroll de la tuba"],
   [files["firestore.rules"].includes("!exists(") && files["firestore.rules"].includes("allow read, update, delete: if false"), "Reglas inseguras"],
   [files["firestore.rules"].includes("/responses/felipe-banda"), "Falta la ruta de Felipe"],
   [hero.size < 180000, "La imagen principal supera 180 KB"],
