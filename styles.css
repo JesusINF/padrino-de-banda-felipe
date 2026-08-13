@@ -215,6 +215,18 @@ button { font: inherit; }
   text-shadow: 0 .12rem .35rem rgb(1 15 32 / 92%);
 }
 
+.hero__copy .eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 .75rem -.5rem;
+  padding: .35rem .5rem .4rem;
+  color: #ffd0a8;
+  background: rgb(7 27 53 / 96%);
+  box-shadow: 0 .35rem 1rem rgb(1 15 32 / 38%);
+  line-height: 1.35;
+  text-shadow: none;
+}
+
 .hero__name {
   margin: 0;
   max-width: 100%;
